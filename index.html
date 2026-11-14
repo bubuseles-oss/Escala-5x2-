@@ -90,8 +90,8 @@
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
                     <div>
-                        <p class="text-xs text-slate-500 font-medium">Conformidade CLT</p>
-                        <h3 class="text-xl font-bold text-emerald-600">100% OK</h3>
+                        <p class="text-xs text-slate-500 font-medium">Empresa Fechada</p>
+                        <h3 class="text-xl font-bold text-slate-700">Aos Domingos</h3>
                     </div>
                 </div>
             </div>
@@ -132,8 +132,8 @@
         <div id="tab-escala" class="hidden space-y-6">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
                 <div>
-                    <h3 class="text-lg font-bold text-slate-900">Grade de Escala Semanal (Segunda a Domingo)</h3>
-                    <p class="text-xs text-slate-500">Respeitando restrições de folgas em dias de pico e revezamento.</p>
+                    <h3 class="text-lg font-bold text-slate-900">Grade de Escala Semanal (Segunda a Sábado)</h3>
+                    <p class="text-xs text-slate-500">Domingo é fechado para toda a empresa.</p>
                 </div>
                 <div class="flex items-center gap-3">
                     <span class="inline-flex items-center gap-1.5 text-xs bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-medium border border-emerald-200">
@@ -158,7 +158,7 @@
                                 <th class="p-3 text-center">Qui</th>
                                 <th class="p-3 text-center">Sex</th>
                                 <th class="p-3 text-center">Sáb</th>
-                                <th class="p-3 text-center">Dom</th>
+                                <th class="p-3 text-center bg-slate-200 text-slate-700">Dom (Fechado)</th>
                                 <th class="p-3 text-center">Folga Fixa / Escala</th>
                             </tr>
                         </thead>
@@ -236,7 +236,6 @@
                         <label class="block text-xs font-semibold text-slate-700 mb-1">1ª Folga</label>
                         <select id="empFolga1" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
                             <option value="Sáb">Sábado</option>
-                            <option value="Dom">Domingo</option>
                             <option value="Seg">Segunda</option>
                             <option value="Ter">Terça</option>
                             <option value="Qua">Quarta</option>
@@ -247,9 +246,8 @@
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">2ª Folga</label>
                         <select id="empFolga2" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                            <option value="Dom" selected>Domingo</option>
                             <option value="Sáb">Sábado</option>
-                            <option value="Seg">Segunda</option>
+                            <option value="Seg" selected>Segunda</option>
                             <option value="Ter">Terça</option>
                             <option value="Qua">Quarta</option>
                             <option value="Qui">Quinta</option>
@@ -267,61 +265,61 @@
 
     <!-- Footer -->
     <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
-        Furtil Pneus & PneuX • Sistema Operacional de Escalas 5x2 (8h24min/dia) © 2026
+        Furtil Pneus & PneuX • Empresa não opera aos domingos © 2026
     </footer>
 
     <script>
         const unitRules = {
             "Central": [
-                "Folga fixa obrigatória aos sábados e domingos.",
+                "Folga fixa aos sábados (Empresa fechada aos domingos).",
                 "Redução de jornada mantendo descanso no fim de semana.",
                 "Expediente de segunda a sexta com 8h24min diárias."
             ],
             "HR": [
-                "Folga fixa obrigatória aos sábados e domingos.",
+                "Folga fixa aos sábados (Empresa fechada aos domingos).",
                 "Suporte administrativo centralizado com jornada padrão.",
-                "Sábados e domingos livres para toda a equipe."
+                "Expediente de segunda a sexta."
             ],
             "Telemarketing": [
                 "Operadoras (5) em escala rotativa para garantir 'dobradinha' de folga.",
                 "Coordenadora (1): Proibido folgar aos sábados e segundas-feiras.",
-                "Atendimento alinhado com o fluxo comercial da rede."
+                "Empresa fechada aos domingos."
             ],
             "Loja 1 Tremembé": [
                 "Proibido folgar aos Sábados, Segundas e Sextas (dias de pico).",
                 "Mecânicos divididos em 2 turnos (Turno A: Entrada 08h | Turno B: Saída até 18h).",
-                "Gerência (4 pessoas): Gerentes nunca folgam no mesmo dia; supervisor cobre ausências."
+                "Empresa fechada aos domingos."
             ],
             "Loja 2 Guarulhos": [
                 "Proibido folgar aos Sábados, Segundas e Sextas (dias de pico).",
                 "Mecânicos divididos em 2 turnos (Turno A: Entrada 08h | Turno B: Saída até 18h).",
-                "Gerência (4 pessoas): Gerentes nunca folgam no mesmo dia; supervisor cobre ausências."
+                "Empresa fechada aos domingos."
             ],
             "Loja 3 Tatuapé": [
                 "Proibido folgar aos Sábados, Segundas e Sextas (dias de pico).",
                 "Mecânicos divididos em 2 turnos (Turno A: Entrada 08h | Turno B: Saída até 18h).",
-                "Gerência (4 pessoas): Gerentes nunca folgam no mesmo dia; supervisor cobre ausências."
+                "Empresa fechada aos domingos."
             ],
             "Loja 4 Aricanduva": [
                 "Proibido folgar aos Sábados, Segundas e Sextas (dias de pico).",
                 "Mecânicos divididos em 2 turnos (Turno A: Entrada 08h | Turno B: Saída até 18h).",
-                "Gerência (4 pessoas): Gerentes nunca folgam no mesmo dia; supervisor cobre ausências."
+                "Empresa fechada aos domingos."
             ]
         };
 
         const defaultData = {
             "Central": [
-                { name: "Ana Silva", role: "Analista / Administrativo", folga1: "Sáb", folga2: "Dom" },
-                { name: "Carlos Souza", role: "Analista / Administrativo", folga1: "Sáb", folga2: "Dom" }
+                { name: "Ana Silva", role: "Analista / Administrativo", folga1: "Sáb", folga2: "Seg" },
+                { name: "Carlos Souza", role: "Analista / Administrativo", folga1: "Sáb", folga2: "Seg" }
             ],
             "HR": [
-                { name: "Juliana Costa", role: "Analista / Administrativo", folga1: "Sáb", folga2: "Dom" },
-                { name: "Fernanda Alves", role: "Analista / Administrativo", folga1: "Sáb", folga2: "Dom" }
+                { name: "Juliana Costa", role: "Analista / Administrativo", folga1: "Sáb", folga2: "Seg" },
+                { name: "Fernanda Alves", role: "Analista / Administrativo", folga1: "Sáb", folga2: "Seg" }
             ],
             "Telemarketing": [
                 { name: "Mariana Teles", role: "Coordenadora Telemarketing", folga1: "Ter", folga2: "Qua" },
-                { name: "Camila Operadora 1", role: "Operadora Telemarketing", folga1: "Sáb", folga2: "Dom" },
-                { name: "Beatriz Operadora 2", role: "Operadora Telemarketing", folga1: "Dom", folga2: "Seg" },
+                { name: "Camila Operadora 1", role: "Operadora Telemarketing", folga1: "Sáb", folga2: "Seg" },
+                { name: "Beatriz Operadora 2", role: "Operadora Telemarketing", folga1: "Seg", folga2: "Ter" },
                 { name: "Juliana Operadora 3", role: "Operadora Telemarketing", folga1: "Ter", folga2: "Qua" },
                 { name: "Larissa Operadora 4", role: "Operadora Telemarketing", folga1: "Qua", folga2: "Qui" },
                 { name: "Renata Operadora 5", role: "Operadora Telemarketing", folga1: "Qui", folga2: "Sex" }
@@ -331,7 +329,7 @@
                 { name: "Roberto (Gerente 2)", role: "Gerente (Turno Único)", folga1: "Qui", folga2: "Sex" },
                 { name: "Patricia (Gerente 3)", role: "Gerente (Turno Único)", folga1: "Ter", folga2: "Qui" },
                 { name: "Lucas (Gerente 4)", role: "Gerente (Turno Único)", folga1: "Qua", folga2: "Sex" },
-                { name: "Marcelo Supervisor", role: "Supervisor (Cobertura)", folga1: "Dom", folga2: "Seg" },
+                { name: "Marcelo Supervisor", role: "Supervisor (Cobertura)", folga1: "Seg", folga2: "Ter" },
                 { name: "João Mecânico A", role: "Mecânico (Turno A - 08:00)", folga1: "Ter", folga2: "Qua" },
                 { name: "Paulo Mecânico B", role: "Mecânico (Turno B - até 18:00)", folga1: "Qua", folga2: "Qui" }
             ],
@@ -340,7 +338,7 @@
                 { name: "Bruno G2", role: "Gerente (Turno Único)", folga1: "Qui", folga2: "Sex" },
                 { name: "Vanessa G3", role: "Gerente (Turno Único)", folga1: "Ter", folga2: "Qui" },
                 { name: "Diego G4", role: "Gerente (Turno Único)", folga1: "Qua", folga2: "Sex" },
-                { name: "Thiago Sup", role: "Supervisor (Cobertura)", folga1: "Dom", folga2: "Seg" },
+                { name: "Thiago Sup", role: "Supervisor (Cobertura)", folga1: "Seg", folga2: "Ter" },
                 { name: "Alexandre Mec A", role: "Mecânico (Turno A - 08:00)", folga1: "Ter", folga2: "Qua" },
                 { name: "Felipe Mec B", role: "Mecânico (Turno B - até 18:00)", folga1: "Qua", folga2: "Qui" }
             ],
@@ -349,7 +347,7 @@
                 { name: "Rodrigo G2", role: "Gerente (Turno Único)", folga1: "Qui", folga2: "Sex" },
                 { name: "Tatiane G3", role: "Gerente (Turno Único)", folga1: "Ter", folga2: "Qui" },
                 { name: "Renato G4", role: "Gerente (Turno Único)", folga1: "Qua", folga2: "Sex" },
-                { name: "Wagner Sup", role: "Supervisor (Cobertura)", folga1: "Dom", folga2: "Seg" },
+                { name: "Wagner Sup", role: "Supervisor (Cobertura)", folga1: "Seg", folga2: "Ter" },
                 { name: "Leandro Mec A", role: "Mecânico (Turno A - 08:00)", folga1: "Ter", folga2: "Qua" },
                 { name: "Carlos Mec B", role: "Mecânico (Turno B - até 18:00)", folga1: "Qua", folga2: "Qui" }
             ],
@@ -358,13 +356,13 @@
                 { name: "Renato C. G2", role: "Gerente (Turno Único)", folga1: "Qui", folga2: "Sex" },
                 { name: "Sandra G3", role: "Gerente (Turno Único)", folga1: "Ter", folga2: "Qui" },
                 { name: "Luciana G4", role: "Gerente (Turno Único)", folga1: "Qua", folga2: "Sex" },
-                { name: "Fabio Sup", role: "Supervisor (Cobertura)", folga1: "Dom", folga2: "Seg" },
+                { name: "Fabio Sup", role: "Supervisor (Cobertura)", folga1: "Seg", folga2: "Ter" },
                 { name: "Mateus Mec A", role: "Mecânico (Turno A - 08:00)", folga1: "Ter", folga2: "Qua" },
                 { name: "Jonas Mec B", role: "Mecânico (Turno B - até 18:00)", folga1: "Qua", folga2: "Qui" }
             ]
         };
 
-        let db = JSON.parse(localStorage.getItem('furtil_escala_db_v2')) || defaultData;
+        let db = JSON.parse(localStorage.getItem('furtil_escala_db_v3')) || defaultData;
         let currentStore = "Loja 1 Tremembé";
         let currentTab = "dashboard";
 
@@ -392,7 +390,6 @@
             const employees = db[currentStore] || [];
             document.getElementById('stat-total').innerText = employees.length;
 
-            // Render rules
             const rulesContainer = document.getElementById('unitRulesDescription');
             const rules = unitRules[currentStore] || [];
             rulesContainer.innerHTML = rules.map(r => `
@@ -402,17 +399,15 @@
                 </div>
             `).join('');
 
-            // Summary Table
             const summaryBody = document.getElementById('summaryTableBody');
             summaryBody.innerHTML = Object.keys(db).map(store => {
                 const count = db[store].length;
                 const isSelected = store === currentStore ? 'bg-blue-50/50 font-semibold' : '';
-                const ruleDesc = store.includes('Loja') ? 'Folga Seg/Ter/Qua/Qui' : (store === 'Telemarketing' ? 'Rodízio Operadoras' : 'Folga Sáb/Dom');
                 return `
                     <tr class="hover:bg-slate-50 transition ${isSelected}">
                         <td class="p-3 text-slate-900">${store}</td>
                         <td class="p-3 text-center">${count}</td>
-                        <td class="p-3 text-slate-600">${ruleDesc}</td>
+                        <td class="p-3 text-slate-600">Seg a Sáb (Dom Fechado)</td>
                         <td class="p-3 text-center">01/12/2026</td>
                         <td class="p-3 text-center">
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">Conforme</span>
@@ -421,8 +416,7 @@
                 `;
             }).join('');
 
-            // Escala Semanal
-            const dias = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'];
+            const dias = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
             const escalaBody = document.getElementById('escalaTableBody');
             escalaBody.innerHTML = employees.map(emp => {
                 const diasCells = dias.map(d => {
@@ -439,12 +433,12 @@
                         <td class="p-3 font-medium text-slate-900">${emp.name}</td>
                         <td class="p-3 text-slate-600 text-xs">${emp.role}</td>
                         ${diasCells}
+                        <td class="p-3 text-center"><span class="inline-block px-2 py-1 bg-slate-200 text-slate-600 font-medium text-xs rounded-md">Fechado</span></td>
                         <td class="p-3 text-center text-xs font-semibold text-slate-500">${emp.folga1} / ${emp.folga2}</td>
                     </tr>
                 `;
             }).join('');
 
-            // Equipe Table
             const equipeBody = document.getElementById('equipeTableBody');
             equipeBody.innerHTML = employees.map((emp, idx) => `
                 <tr class="hover:bg-slate-50 transition">
@@ -459,7 +453,7 @@
                 </tr>
             `).join('');
 
-            localStorage.setItem('furtil_escala_db_v2', JSON.stringify(db));
+            localStorage.setItem('furtil_escala_db_v3', JSON.stringify(db));
         }
 
         function openAddModal() {
@@ -467,8 +461,8 @@
             document.getElementById('empIndex').value = "";
             document.getElementById('empName').value = "";
             document.getElementById('empRole').selectedIndex = 0;
-            document.getElementById('empFolga1').value = "Ter";
-            document.getElementById('empFolga2').value = "Qua";
+            document.getElementById('empFolga1').value = "Seg";
+            document.getElementById('empFolga2').value = "Ter";
             document.getElementById('employeeModal').classList.remove('hidden');
             document.getElementById('employeeModal').classList.add('flex');
         }
