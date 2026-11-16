@@ -257,6 +257,7 @@
             "Central": [
                 "1ª Folga Fixa: Domingo (Empresa fechada).",
                 "Bruna e Kimberlly folgam aos sábados e domingos.",
+                "Renato (Supervisor) não pode folgar no mesmo dia que os gerentes de loja (Henrique, Almir, Felipe, Cristiano).",
                 "Bruna (Gerente), José Carlos (Motorista), Renato (Supervisor)."
             ],
             "HR": [
@@ -347,7 +348,7 @@
             ]
         };
 
-        let db = JSON.parse(localStorage.getItem('furtil_escala_db_v7')) || defaultData;
+        let db = JSON.parse(localStorage.getItem('furtil_escala_db_v8')) || defaultData;
         let currentStore = "Central";
         let currentTab = "dashboard";
 
@@ -478,7 +479,7 @@
                 </tr>
             `).join('');
 
-            localStorage.setItem('furtil_escala_db_v7', JSON.stringify(db));
+            localStorage.setItem('furtil_escala_db_v8', JSON.stringify(db));
         }
 
         function openAddModal() {
@@ -522,7 +523,39 @@
                 }
             }
 
-            if (!db[currentStore]) db[currentStore] = [];
+            
+            // Validação para Renato (Supervisor) não coincidir com gerentes de loja (Henrique, Almir, Felipe, Cristiano)
+            if (name.toUpperCase().includes('RENATO') && currentStore === 'Central') {
+                const managerStores = ['Aricanduva', 'Guarulhos', 'Tremembé', 'Tatuapé'];
+                const managerNames = ['HENRIQUE', 'ALMIR', 'FELIPE', 'CRISTIANO'];
+                for (let store of managerStores) {
+                    if (db[store]) {
+                        for (let emp of db[store]) {
+                            if (managerNames.some(m => emp.name.toUpperCase().includes(m))) {
+                                if (emp.folga2 === folga2) {
+                                    alert(`Atenção: A folga do Renato não pode coincidir com o gerente ${emp.name} (${store}), que folga na ${folga2}!`);
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            // Validação se um gerente está mudando a folga para o mesmo dia do Renato
+            const isManager = ['HENRIQUE', 'ALMIR', 'FELIPE', 'CRISTIANO'].some(m => name.toUpperCase().includes(m));
+            if (isManager) {
+                if (db['Central']) {
+                    const renato = db['Central'].find(e => e.name.toUpperCase().includes('RENATO'));
+                    if (renato && renato.folga2 === folga2) {
+                        alert(`Atenção: Esta folga (${folga2}) coincide com a folga do supervisor Renato na Central! Escolha outro dia.`);
+                        return;
+                    }
+                }
+            }
+
+if (!db[currentStore]) db[currentStore] = [];
 
             if (idx === "") {
                 db[currentStore].push({ name, role, folga2 });
