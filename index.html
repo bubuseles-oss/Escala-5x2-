@@ -18,7 +18,7 @@
                 </div>
                 <div>
                     <h1 class="text-xl font-bold tracking-tight">Furtil Pneus & PneuX</h1>
-                    <p class="text-xs text-slate-400">Jornada 5x2 • 8h24min/dia • Domingo = 1ª Folga Fixa</p>
+                    <p class="text-xs text-slate-400">Jornada 5x2 • Dezembro/2026 • Folga Rotativa & Exceções</p>
                 </div>
             </div>
             <!-- Store Selector -->
@@ -39,14 +39,17 @@
 
     <!-- Navigation Tabs -->
     <nav class="bg-white border-b border-slate-200 sticky top-0 z-20 shadow-xs">
-        <div class="max-w-7xl mx-auto px-4 flex gap-8">
-            <button onclick="switchTab('dashboard')" id="btn-dashboard" class="py-3.5 border-b-2 border-blue-600 text-blue-600 font-semibold text-sm flex items-center gap-2 transition">
+        <div class="max-w-7xl mx-auto px-4 flex gap-6 overflow-x-auto">
+            <button onclick="switchTab('dashboard')" id="btn-dashboard" class="py-3.5 border-b-2 border-blue-600 text-blue-600 font-semibold text-sm flex items-center gap-2 transition whitespace-nowrap">
                 <i class="fa-solid fa-chart-pie"></i> Dashboard & Regras
             </button>
-            <button onclick="switchTab('escala')" id="btn-escala" class="py-3.5 border-b-2 border-transparent text-slate-600 hover:text-slate-900 font-semibold text-sm flex items-center gap-2 transition">
-                <i class="fa-solid fa-table-cells"></i> Escala Semanal (5x2)
+            <button onclick="switchTab('escala')" id="btn-escala" class="py-3.5 border-b-2 border-transparent text-slate-600 hover:text-slate-900 font-semibold text-sm flex items-center gap-2 transition whitespace-nowrap">
+                <i class="fa-solid fa-table-cells"></i> Escala Semanal
             </button>
-            <button onclick="switchTab('equipe')" id="btn-equipe" class="py-3.5 border-b-2 border-transparent text-slate-600 hover:text-slate-900 font-semibold text-sm flex items-center gap-2 transition">
+            <button onclick="switchTab('calendario')" id="btn-calendario" class="py-3.5 border-b-2 border-transparent text-slate-600 hover:text-slate-900 font-semibold text-sm flex items-center gap-2 transition whitespace-nowrap">
+                <i class="fa-solid fa-calendar-alt"></i> Calendário Dezembro (Rotativo)
+            </button>
+            <button onclick="switchTab('equipe')" id="btn-equipe" class="py-3.5 border-b-2 border-transparent text-slate-600 hover:text-slate-900 font-semibold text-sm flex items-center gap-2 transition whitespace-nowrap">
                 <i class="fa-solid fa-users"></i> Gestão de Equipe
             </button>
         </div>
@@ -59,39 +62,31 @@
         <div id="tab-dashboard" class="space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex items-center gap-4">
-                    <div class="bg-blue-50 text-blue-600 p-4 rounded-xl text-xl font-bold">
-                        <i class="fa-solid fa-users"></i>
-                    </div>
+                    <div class="bg-blue-50 text-blue-600 p-4 rounded-xl text-xl font-bold"><i class="fa-solid fa-users"></i></div>
                     <div>
                         <p class="text-xs text-slate-500 font-medium">Equipe no Setor</p>
                         <h3 id="stat-total" class="text-2xl font-bold text-slate-900">0</h3>
                     </div>
                 </div>
                 <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex items-center gap-4">
-                    <div class="bg-emerald-50 text-emerald-600 p-4 rounded-xl text-xl font-bold">
-                        <i class="fa-solid fa-business-time"></i>
-                    </div>
+                    <div class="bg-emerald-50 text-emerald-600 p-4 rounded-xl text-xl font-bold"><i class="fa-solid fa-business-time"></i></div>
                     <div>
                         <p class="text-xs text-slate-500 font-medium">Jornada Diária</p>
                         <h3 class="text-2xl font-bold text-slate-900">8h 24m</h3>
                     </div>
                 </div>
                 <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex items-center gap-4">
-                    <div class="bg-indigo-50 text-indigo-600 p-4 rounded-xl text-xl font-bold">
-                        <i class="fa-solid fa-clock-rotate-left"></i>
-                    </div>
+                    <div class="bg-indigo-50 text-indigo-600 p-4 rounded-xl text-xl font-bold"><i class="fa-solid fa-clock-rotate-left"></i></div>
                     <div>
-                        <p class="text-xs text-slate-500 font-medium">Saída aos Sábados</p>
+                        <p class="text-xs text-slate-500 font-medium">Saída Sábados</p>
                         <h3 class="text-2xl font-bold text-slate-900">17:24</h3>
                     </div>
                 </div>
                 <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex items-center gap-4">
-                    <div class="bg-amber-50 text-amber-600 p-4 rounded-xl text-xl font-bold">
-                        <i class="fa-solid fa-calendar-check"></i>
-                    </div>
+                    <div class="bg-amber-50 text-amber-600 p-4 rounded-xl text-xl font-bold"><i class="fa-solid fa-calendar-check"></i></div>
                     <div>
                         <p class="text-xs text-slate-500 font-medium">1ª Folga Fixa</p>
-                        <h3 class="text-xl font-bold text-slate-700">Domingo (Sempre)</h3>
+                        <h3 class="text-xl font-bold text-slate-700">Domingo (Fechado)</h3>
                     </div>
                 </div>
             </div>
@@ -99,11 +94,9 @@
             <!-- Rules Card -->
             <div class="bg-white rounded-xl border border-slate-200 shadow-xs p-6 space-y-4">
                 <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-                    <i class="fa-solid fa-circle-info text-blue-600"></i> Diretrizes Operacionais Aplicadas a esta Unidade
+                    <i class="fa-solid fa-circle-info text-blue-600"></i> Diretrizes Operacionais (Com Exceções Permitidas)
                 </h3>
-                <div id="unitRulesDescription" class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-600">
-                    <!-- Populated dynamically -->
-                </div>
+                <div id="unitRulesDescription" class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-600"></div>
             </div>
 
             <!-- Unit overview table -->
@@ -115,14 +108,12 @@
                             <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
                                 <th class="p-3">Unidade / Setor</th>
                                 <th class="p-3 text-center">Colaboradores</th>
-                                <th class="p-3">Regra de Folgas (5x2)</th>
-                                <th class="p-3 text-center">Início Vigência</th>
+                                <th class="p-3">Padrão de Escala</th>
+                                <th class="p-3 text-center">Vigência</th>
                                 <th class="p-3 text-center">Status</th>
                             </tr>
                         </thead>
-                        <tbody id="summaryTableBody" class="divide-y divide-slate-100">
-                            <!-- Populated via JS -->
-                        </tbody>
+                        <tbody id="summaryTableBody" class="divide-y divide-slate-100"></tbody>
                     </table>
                 </div>
             </div>
@@ -132,16 +123,12 @@
         <div id="tab-escala" class="hidden space-y-6">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
                 <div>
-                    <h3 class="text-lg font-bold text-slate-900">Grade de Escala Semanal (Segunda a Sábado)</h3>
-                    <p class="text-xs text-slate-500">Domingo = 1ª Folga fixa automática | Escolha da 2ª Folga nos dias úteis.</p>
+                    <h3 class="text-lg font-bold text-slate-900">Grade de Escala Semanal (Padrão 5x2)</h3>
+                    <p class="text-xs text-slate-500">Domingo = 1ª Folga fixa | 2ª Folga Rotativa (Segundas e Sábados liberados para exceções).</p>
                 </div>
                 <div class="flex items-center gap-3">
-                    <span class="inline-flex items-center gap-1.5 text-xs bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-medium border border-emerald-200">
-                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Trabalha
-                    </span>
-                    <span class="inline-flex items-center gap-1.5 text-xs bg-rose-50 text-rose-700 px-3 py-1 rounded-full font-medium border border-rose-200">
-                        <span class="w-2 h-2 rounded-full bg-rose-500"></span> Folga
-                    </span>
+                    <span class="inline-flex items-center gap-1.5 text-xs bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-medium border border-emerald-200"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Trabalha</span>
+                    <span class="inline-flex items-center gap-1.5 text-xs bg-rose-50 text-rose-700 px-3 py-1 rounded-full font-medium border border-rose-200"><span class="w-2 h-2 rounded-full bg-rose-500"></span> Folga</span>
                 </div>
             </div>
 
@@ -158,24 +145,50 @@
                                 <th class="p-3 text-center">Qui</th>
                                 <th class="p-3 text-center">Sex</th>
                                 <th class="p-3 text-center">Sáb</th>
-                                <th class="p-3 text-center bg-rose-50 text-rose-800">Dom (1ª Folga Fixa)</th>
-                                <th class="p-3 text-center">2ª Folga Escolhida</th>
+                                <th class="p-3 text-center bg-rose-50 text-rose-800">Dom (1ª Fixa)</th>
+                                <th class="p-3 text-center">2ª Folga Rotativa</th>
                             </tr>
                         </thead>
-                        <tbody id="escalaTableBody" class="divide-y divide-slate-100">
-                            <!-- Populated via JS -->
+                        <tbody id="escalaTableBody" class="divide-y divide-slate-100"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: CALENDÁRIO DE DEZEMBRO (ROTATIVO) -->
+        <div id="tab-calendario" class="hidden space-y-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900">Calendário de Escalas — Dezembro de 2026</h3>
+                    <p class="text-xs text-slate-500">Visualização dia a dia do mês (Domingos marcados como empresa fechada / folga fixa).</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs bg-slate-100 text-slate-700 px-3 py-1.5 rounded-lg font-medium">Mês: <strong>Dezembro 2026</strong></span>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden p-4">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs">
+                        <thead>
+                            <tr id="calHeaderRow" class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                                <!-- Gerado via JS para os dias 1 a 31 de Dezembro -->
+                            </tr>
+                        </thead>
+                        <tbody id="calTableBody" class="divide-y divide-slate-100">
+                            <!-- Gerado via JS -->
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
 
-        <!-- TAB 3: EQUIPE -->
+        <!-- TAB 4: EQUIPE -->
         <div id="tab-equipe" class="hidden space-y-6">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
                 <div>
                     <h3 class="text-lg font-bold text-slate-900">Quadro de Colaboradores</h3>
-                    <p class="text-xs text-slate-500">Domingo já é fixo. Defina apenas a 2ª folga da semana.</p>
+                    <p class="text-xs text-slate-500">Cadastre a equipe e configure a 2ª folga rotativa (com exceções livres para segundas e sábados).</p>
                 </div>
                 <button onclick="openAddModal()" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg text-sm flex items-center gap-2 shadow-xs transition cursor-pointer">
                     <i class="fa-solid fa-user-plus"></i> Novo Colaborador
@@ -189,14 +202,12 @@
                             <tr class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
                                 <th class="p-3">Nome</th>
                                 <th class="p-3">Cargo / Turno</th>
-                                <th class="p-3 text-center">1ª Folga (Fixa)</th>
-                                <th class="p-3 text-center">2ª Folga (Variável)</th>
+                                <th class="p-3 text-center">1ª Folga (Fixa Dom)</th>
+                                <th class="p-3 text-center">2ª Folga (Rotativa)</th>
                                 <th class="p-3 text-center">Ações</th>
                             </tr>
                         </thead>
-                        <tbody id="equipeTableBody" class="divide-y divide-slate-100">
-                            <!-- Populated via JS -->
-                        </tbody>
+                        <tbody id="equipeTableBody" class="divide-y divide-slate-100"></tbody>
                     </table>
                 </div>
             </div>
@@ -209,9 +220,7 @@
         <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-100">
             <div class="flex justify-between items-center mb-4">
                 <h3 id="modalTitle" class="text-lg font-bold text-slate-900">Adicionar Colaborador</h3>
-                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 text-lg">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 text-lg"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <form id="employeeForm" onsubmit="saveEmployee(event)" class="space-y-4">
                 <input type="hidden" id="empIndex">
@@ -232,10 +241,10 @@
                     </select>
                 </div>
                 <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">2ª Folga da Semana (Escolha o dia útil / sábado)</label>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">2ª Folga Rotativa (Segunda a Sábado - Exceções permitidas)</label>
                     <select id="empFolga2" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                        <option value="Sáb">Sábado</option>
-                        <option value="Seg">Segunda</option>
+                        <option value="Sáb">Sábado (Exceção)</option>
+                        <option value="Seg">Segunda (Exceção)</option>
                         <option value="Ter" selected>Terça</option>
                         <option value="Qua">Quarta</option>
                         <option value="Qui">Quinta</option>
@@ -252,44 +261,44 @@
 
     <!-- Footer -->
     <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
-        Furtil Pneus & PneuX • Domingo = 1ª Folga Automática © 2026
+        Furtil Pneus & PneuX • Calendário de Dezembro 2026 © 2026
     </footer>
 
     <script>
         const unitRules = {
             "Central": [
                 "1ª Folga Fixa: Domingo (Empresa fechada).",
-                "2ª Folga Fixa: Sábado (para a equipe da Central/HR).",
+                "2ª Folga Rotativa: Sábado (ou dias úteis por exceção).",
                 "Expediente de segunda a sexta com 8h24min diárias."
             ],
             "HR": [
                 "1ª Folga Fixa: Domingo (Empresa fechada).",
-                "2ª Folga Fixa: Sábado.",
+                "2ª Folga Rotativa: Sábado (ou dias úteis por exceção).",
                 "Suporte administrativo centralizado."
             ],
             "Telemarketing": [
                 "1ª Folga Fixa: Domingo (Empresa fechada).",
-                "2ª Folga (Operadoras): Escala rotativa entre as 5 para 'dobradinha'.",
-                "Coordenadora (1): Proibido folgar aos sábados e segundas."
+                "2ª Folga Rotativa: Sistema flexível com exceções permitidas para segundas e sábados.",
+                "Coordenadora com revezamento."
             ],
             "Loja 1 Tremembé": [
                 "1ª Folga Fixa: Domingo (Empresa fechada).",
-                "2ª Folga: Proibido folgar aos Sábados, Segundas e Sextas (dias de pico nas lojas).",
-                "Mecânicos em 2 turnos e gerência revezada (nunca no mesmo dia)."
+                "2ª Folga Rotativa: Preferência por dias úteis, mas com exceções liberadas para segundas e sábados conforme necessidade.",
+                "Mecânicos em 2 turnos e gerência revezada."
             ],
             "Loja 2 Guarulhos": [
                 "1ª Folga Fixa: Domingo (Empresa fechada).",
-                "2ª Folga: Proibido folgar aos Sábados, Segundas e Sextas (dias de pico nas lojas).",
+                "2ª Folga Rotativa: Exceções liberadas para segundas e sábados.",
                 "Mecânicos em 2 turnos e gerência revezada."
             ],
             "Loja 3 Tatuapé": [
                 "1ª Folga Fixa: Domingo (Empresa fechada).",
-                "2ª Folga: Proibido folgar aos Sábados, Segundas e Sextas (dias de pico nas lojas).",
+                "2ª Folga Rotativa: Exceções liberadas para segundas e sábados.",
                 "Mecânicos em 2 turnos e gerência revezada."
             ],
             "Loja 4 Aricanduva": [
                 "1ª Folga Fixa: Domingo (Empresa fechada).",
-                "2ª Folga: Proibido folgar aos Sábados, Segundas e Sextas (dias de pico nas lojas).",
+                "2ª Folga Rotativa: Exceções liberadas para segundas e sábados.",
                 "Mecânicos em 2 turnos e gerência revezada."
             ]
         };
@@ -306,9 +315,9 @@
             "Telemarketing": [
                 { name: "Mariana Teles", role: "Coordenadora Telemarketing", folga2: "Ter" },
                 { name: "Camila Operadora 1", role: "Operadora Telemarketing", folga2: "Sáb" },
-                { name: "Beatriz Operadora 2", role: "Operadora Telemarketing", folga2: "Ter" },
-                { name: "Juliana Operadora 3", role: "Operadora Telemarketing", folga2: "Qua" },
-                { name: "Larissa Operadora 4", role: "Operadora Telemarketing", folga2: "Qui" },
+                { name: "Beatriz Operadora 2", role: "Operadora Telemarketing", folga2: "Seg" },
+                { name: "Juliana Operadora 3", role: "Operadora Telemarketing", folga2: "Ter" },
+                { name: "Larissa Operadora 4", role: "Operadora Telemarketing", folga2: "Qua" },
                 { name: "Renata Operadora 5", role: "Operadora Telemarketing", folga2: "Sex" }
             ],
             "Loja 1 Tremembé": [
@@ -349,7 +358,7 @@
             ]
         };
 
-        let db = JSON.parse(localStorage.getItem('furtil_escala_db_v4')) || defaultData;
+        let db = JSON.parse(localStorage.getItem('furtil_escala_db_v5')) || defaultData;
         let currentStore = "Loja 1 Tremembé";
         let currentTab = "dashboard";
 
@@ -362,7 +371,7 @@
 
         function switchTab(tab) {
             currentTab = tab;
-            ['dashboard', 'escala', 'equipe'].forEach(t => {
+            ['dashboard', 'escala', 'calendario', 'equipe'].forEach(t => {
                 document.getElementById(`tab-${t}`).classList.add('hidden');
                 document.getElementById(`btn-${t}`).classList.remove('border-blue-600', 'text-blue-600');
                 document.getElementById(`btn-${t}`).classList.add('border-transparent', 'text-slate-600');
@@ -394,7 +403,7 @@
                     <tr class="hover:bg-slate-50 transition ${isSelected}">
                         <td class="p-3 text-slate-900">${store}</td>
                         <td class="p-3 text-center">${count}</td>
-                        <td class="p-3 text-slate-600">Domingo (Fixo) + 1 Variável (5x2)</td>
+                        <td class="p-3 text-slate-600">Domingo (Fixo) + 2ª Rotativa (Exceções lib.)</td>
                         <td class="p-3 text-center">01/12/2026</td>
                         <td class="p-3 text-center">
                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">Conforme</span>
@@ -403,6 +412,7 @@
                 `;
             }).join('');
 
+            // Escala Semanal
             const dias = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
             const escalaBody = document.getElementById('escalaTableBody');
             escalaBody.innerHTML = employees.map(emp => {
@@ -426,6 +436,49 @@
                 `;
             }).join('');
 
+            // CALENDÁRIO DE DEZEMBRO 2026 (Dias 1 a 31)
+            // 01/12/2026 é Terça-feira (Exemplo de mapeamento do mês)
+            const daysInMonth = 31;
+            const weekDaysMap = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+            
+            // Gerar cabeçalho do calendário
+            let calHeaderHTML = `<th class="p-2 border-b border-r bg-slate-200 text-slate-800 sticky left-0 z-10">Colaborador</th>`;
+            let dayOfWeekList = [];
+            for (let d = 1; d <= daysInMonth; d++) {
+                // 1 de Dezembro de 2026 é Terça (index 2)
+                let dateObj = new Date(2026, 11, d);
+                let wDay = weekDaysMap[dateObj.getDay()];
+                dayOfWeekList.push({ day: d, wDay: wDay });
+                
+                let isSun = wDay === 'Dom';
+                let headerBg = isSun ? 'bg-rose-100 text-rose-800' : 'bg-slate-100 text-slate-700';
+                calHeaderHTML += `<th class="p-1 text-center border-b border-r text-[10px] ${headerBg}">${d}<br>${wDay}</th>`;
+            }
+            document.getElementById('calHeaderRow').innerHTML = calHeaderHTML;
+
+            // Gerar linhas do calendário por colaborador
+            let calBodyHTML = '';
+            employees.forEach(emp => {
+                calBodyHTML += `<tr class="hover:bg-slate-50 transition">`;
+                calBodyHTML += `<td class="p-2 border-b border-r font-medium text-slate-900 bg-white sticky left-0 z-10 whitespace-nowrap">${emp.name} <span class="text-[10px] text-slate-400 block">(${emp.role})</span></td>`;
+                
+                dayOfWeekList.forEach(item => {
+                    let isSunday = item.wDay === 'Dom';
+                    let isRotativaFolga = (item.wDay === emp.folga2);
+                    
+                    if (isSunday) {
+                        calBodyHTML += `<td class="p-1 text-center border-b border-r bg-rose-50 text-[10px] text-rose-600 font-bold" title="Domingo - Empresa Fechada">F</td>`;
+                    } else if (isRotativaFolga) {
+                        calBodyHTML += `<td class="p-1 text-center border-b border-r bg-amber-50 text-[10px] text-amber-700 font-bold" title="Folga Rotativa">F</td>`;
+                    } else {
+                        calBodyHTML += `<td class="p-1 text-center border-b border-r text-[10px] text-emerald-600" title="Trabalha">T</td>`;
+                    }
+                });
+                calBodyHTML += `</tr>`;
+            });
+            document.getElementById('calTableBody').innerHTML = calBodyHTML;
+
+            // Tabela Equipe
             const equipeBody = document.getElementById('equipeTableBody');
             equipeBody.innerHTML = employees.map((emp, idx) => `
                 <tr class="hover:bg-slate-50 transition">
@@ -440,7 +493,7 @@
                 </tr>
             `).join('');
 
-            localStorage.setItem('furtil_escala_db_v4', JSON.stringify(db));
+            localStorage.setItem('furtil_escala_db_v5', JSON.stringify(db));
         }
 
         function openAddModal() {
@@ -475,21 +528,6 @@
             const name = document.getElementById('empName').value;
             const role = document.getElementById('empRole').value;
             const folga2 = document.getElementById('empFolga2').value;
-
-            if (currentStore.includes('Loja')) {
-                const diasProibidos = ['Sáb', 'Seg', 'Sex'];
-                if (diasProibidos.includes(folga2)) {
-                    alert("Atenção nas Lojas: A 2ª folga não pode ser aos Sábados, Segundas e Sextas!");
-                    return;
-                }
-            }
-
-            if (currentStore === 'Telemarketing' && role.includes('Coordenadora')) {
-                if (folga2 === 'Sáb' || folga2 === 'Seg') {
-                    alert("A Coordenadora de Telemarketing não pode ter 2ª folga aos sábados nem às segundas-feiras!");
-                    return;
-                }
-            }
 
             if (!db[currentStore]) db[currentStore] = [];
 
