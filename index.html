@@ -18,7 +18,7 @@
                 </div>
                 <div>
                     <h1 class="text-xl font-bold tracking-tight">Furtil Pneus & PneuX</h1>
-                    <p class="text-xs text-slate-400">Jornada 5x2 • Dezembro/2026 • Folga Rotativa & Exceções</p>
+                    <p class="text-xs text-slate-400">Jornada 5x2 • Dezembro/2026 • Equipe Oficial & Regras Especiais</p>
                 </div>
             </div>
             <!-- Store Selector -->
@@ -28,10 +28,10 @@
                     <option value="Central" class="bg-slate-800">Central</option>
                     <option value="HR" class="bg-slate-800">HR</option>
                     <option value="Telemarketing" class="bg-slate-800">Telemarketing</option>
-                    <option value="Loja 1 Tremembé" class="bg-slate-800">Loja 1 Tremembé</option>
-                    <option value="Loja 2 Guarulhos" class="bg-slate-800">Loja 2 Guarulhos</option>
-                    <option value="Loja 3 Tatuapé" class="bg-slate-800">Loja 3 Tatuapé</option>
-                    <option value="Loja 4 Aricanduva" class="bg-slate-800">Loja 4 Aricanduva</option>
+                    <option value="Tremembé" class="bg-slate-800">Tremembé</option>
+                    <option value="Guarulhos" class="bg-slate-800">Guarulhos</option>
+                    <option value="Tatuapé" class="bg-slate-800">Tatuapé</option>
+                    <option value="Aricanduva" class="bg-slate-800">Aricanduva</option>
                 </select>
             </div>
         </div>
@@ -94,7 +94,7 @@
             <!-- Rules Card -->
             <div class="bg-white rounded-xl border border-slate-200 shadow-xs p-6 space-y-4">
                 <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-                    <i class="fa-solid fa-circle-info text-blue-600"></i> Diretrizes Operacionais (Com Exceções Permitidas)
+                    <i class="fa-solid fa-circle-info text-blue-600"></i> Diretrizes e Exceções da Unidade
                 </h3>
                 <div id="unitRulesDescription" class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-600"></div>
             </div>
@@ -124,7 +124,7 @@
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
                 <div>
                     <h3 class="text-lg font-bold text-slate-900">Grade de Escala Semanal (Padrão 5x2)</h3>
-                    <p class="text-xs text-slate-500">Domingo = 1ª Folga fixa | 2ª Folga Rotativa (Segundas e Sábados liberados para exceções).</p>
+                    <p class="text-xs text-slate-500">Domingo = 1ª Folga fixa | 2ª Folga Rotativa (Exceções de Seg e Sáb liberadas).</p>
                 </div>
                 <div class="flex items-center gap-3">
                     <span class="inline-flex items-center gap-1.5 text-xs bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-medium border border-emerald-200"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Trabalha</span>
@@ -171,13 +171,9 @@
                 <div class="overflow-x-auto">
                     <table class="w-full text-left border-collapse text-xs">
                         <thead>
-                            <tr id="calHeaderRow" class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
-                                <!-- Gerado via JS para os dias 1 a 31 de Dezembro -->
-                            </tr>
+                            <tr id="calHeaderRow" class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200"></tr>
                         </thead>
-                        <tbody id="calTableBody" class="divide-y divide-slate-100">
-                            <!-- Gerado via JS -->
-                        </tbody>
+                        <tbody id="calTableBody" class="divide-y divide-slate-100"></tbody>
                     </table>
                 </div>
             </div>
@@ -188,7 +184,7 @@
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
                 <div>
                     <h3 class="text-lg font-bold text-slate-900">Quadro de Colaboradores</h3>
-                    <p class="text-xs text-slate-500">Cadastre a equipe e configure a 2ª folga rotativa (com exceções livres para segundas e sábados).</p>
+                    <p class="text-xs text-slate-500">Equipe oficial cadastrada por unidade com regras específicas.</p>
                 </div>
                 <button onclick="openAddModal()" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg text-sm flex items-center gap-2 shadow-xs transition cursor-pointer">
                     <i class="fa-solid fa-user-plus"></i> Novo Colaborador
@@ -230,15 +226,7 @@
                 </div>
                 <div>
                     <label class="block text-xs font-semibold text-slate-700 mb-1">Cargo / Turno / Função</label>
-                    <select id="empRole" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
-                        <option value="Gerente (Turno Único)">Gerente (Turno Único)</option>
-                        <option value="Supervisor (Cobertura)">Supervisor (Cobertura)</option>
-                        <option value="Mecânico (Turno A - 08:00)">Mecânico (Turno A - Entrada 08:00)</option>
-                        <option value="Mecânico (Turno B - até 18:00)">Mecânico (Turno B - Saída 18:00)</option>
-                        <option value="Operadora Telemarketing">Operadora Telemarketing</option>
-                        <option value="Coordenadora Telemarketing">Coordenadora Telemarketing</option>
-                        <option value="Analista / Administrativo">Analista / Administrativo</option>
-                    </select>
+                    <input type="text" id="empRole" required class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
                 </div>
                 <div>
                     <label class="block text-xs font-semibold text-slate-700 mb-1">2ª Folga Rotativa (Segunda a Sábado - Exceções permitidas)</label>
@@ -268,98 +256,99 @@
         const unitRules = {
             "Central": [
                 "1ª Folga Fixa: Domingo (Empresa fechada).",
-                "2ª Folga Rotativa: Sábado (ou dias úteis por exceção).",
-                "Expediente de segunda a sexta com 8h24min diárias."
+                "Bruna e Kimberlly folgam aos sábados e domingos.",
+                "Bruna (Gerente), José Carlos (Motorista), Renato (Supervisor)."
             ],
             "HR": [
                 "1ª Folga Fixa: Domingo (Empresa fechada).",
-                "2ª Folga Rotativa: Sábado (ou dias úteis por exceção).",
-                "Suporte administrativo centralizado."
+                "Folgas aos sábados; sistema de turnos: 1 entra às 8h, outro sai às 18h.",
+                "Equipe: Adilson, Caio, Jeis, Kauã, Paulo."
             ],
             "Telemarketing": [
                 "1ª Folga Fixa: Domingo (Empresa fechada).",
-                "2ª Folga Rotativa: Sistema flexível com exceções permitidas para segundas e sábados.",
-                "Coordenadora com revezamento."
+                "2ª Folga Rotativa entre as assistentes.",
+                "Sirlene (Supervisora): Não folga nem sábado e nem segunda."
             ],
-            "Loja 1 Tremembé": [
+            "Tremembé": [
                 "1ª Folga Fixa: Domingo (Empresa fechada).",
-                "2ª Folga Rotativa: Preferência por dias úteis, mas com exceções liberadas para segundas e sábados conforme necessidade.",
-                "Mecânicos em 2 turnos e gerência revezada."
+                "2ª Folga Rotativa (Exceções permitidas para segundas e sábados).",
+                "Equipe: Felipe (Gerente), Diogo, Guilherme, Jackson, Sarah."
             ],
-            "Loja 2 Guarulhos": [
+            "Guarulhos": [
                 "1ª Folga Fixa: Domingo (Empresa fechada).",
-                "2ª Folga Rotativa: Exceções liberadas para segundas e sábados.",
-                "Mecânicos em 2 turnos e gerência revezada."
+                "Márcia: Fica 4 dias em Guarulhos e 2 no escritório (Central) / escala de divisão.",
+                "Equipe: Almir (Gerente), Dennis, Jardel, Jefferson, Jessica, Kawan, Márcia, Vander, Wellington."
             ],
-            "Loja 3 Tatuapé": [
+            "Tatuapé": [
                 "1ª Folga Fixa: Domingo (Empresa fechada).",
-                "2ª Folga Rotativa: Exceções liberadas para segundas e sábados.",
-                "Mecânicos em 2 turnos e gerência revezada."
+                "Edilaine: Um dia vai na Tatuapé, no outro na Aricanduva (alternada).",
+                "Equipe: Cristiano (Gerente), Edilaine, Eduardo, Kamyli, Marcelo, Rafael."
             ],
-            "Loja 4 Aricanduva": [
+            "Aricanduva": [
                 "1ª Folga Fixa: Domingo (Empresa fechada).",
-                "2ª Folga Rotativa: Exceções liberadas para segundas e sábados.",
-                "Mecânicos em 2 turnos e gerência revezada."
+                "Henrique é Gerente da unidade.",
+                "Equipe: Henrique (Gerente), Gabriel, Moises, Vitória."
             ]
         };
 
         const defaultData = {
             "Central": [
-                { name: "Ana Silva", role: "Analista / Administrativo", folga2: "Sáb" },
-                { name: "Carlos Souza", role: "Analista / Administrativo", folga2: "Sáb" }
+                { name: "BRUNA OLIVEIRA SELES", role: "GERENTE", folga2: "Sáb" },
+                { name: "JOSÉ CARLOS RICCI", role: "MOTORISTA", folga2: "Ter" },
+                { name: "KIMBERLLY EMERENCIANA DE OLIVEIRA TEIXEIRA", role: "FINANCEIRO", folga2: "Sáb" },
+                { name: "RENATO SANTANA FURTIL", role: "SUPERVISOR", folga2: "Qua" }
             ],
             "HR": [
-                { name: "Juliana Costa", role: "Analista / Administrativo", folga2: "Sáb" },
-                { name: "Fernanda Alves", role: "Analista / Administrativo", folga2: "Sáb" }
+                { name: "ADILSON NERI DA COSTA", role: "MOTORISTA (Entra 08h)", folga2: "Sáb" },
+                { name: "CAIO HENRIQUE SOUZA ANACLETO", role: "ESTOQUISTA (Sai 18h)", folga2: "Sáb" },
+                { name: "JEIS DOS SANTOS BENIGNO", role: "VENDEDORA", folga2: "Sáb" },
+                { name: "KAUÃ SANTORO SOUZA DE OLIVEIRA", role: "ESTOQUISTA", folga2: "Sáb" },
+                { name: "PAULO RICARDO COELHO CORBO", role: "VENDEDOR", folga2: "Sáb" }
             ],
             "Telemarketing": [
-                { name: "Mariana Teles", role: "Coordenadora Telemarketing", folga2: "Ter" },
-                { name: "Camila Operadora 1", role: "Operadora Telemarketing", folga2: "Sáb" },
-                { name: "Beatriz Operadora 2", role: "Operadora Telemarketing", folga2: "Seg" },
-                { name: "Juliana Operadora 3", role: "Operadora Telemarketing", folga2: "Ter" },
-                { name: "Larissa Operadora 4", role: "Operadora Telemarketing", folga2: "Qua" },
-                { name: "Renata Operadora 5", role: "Operadora Telemarketing", folga2: "Sex" }
+                { name: "SIRLENE RODRIGUES DE OLIVEIRA", role: "SUPERVISORA TELE (Sem folga Sáb/Seg)", folga2: "Ter" },
+                { name: "CINTHYA DE CASSIA CABRAL DA SILVA", role: "ASSISTENTE TELE", folga2: "Qua" },
+                { name: "DOMENICA DE SOUZA SANTOS GUIMARÃES", role: "ASSISTENTE TELE", folga2: "Qui" },
+                { name: "EMANUELLY BERNARDO DE OLIVEIRA", role: "ASSISTENTE TELE", folga2: "Sex" },
+                { name: "NICOLE SILVA DE PAIVA", role: "ASSISTENTE TELE", folga2: "Seg" },
+                { name: "SARAH GABRYELLE MEDEIROS DA SILVA", role: "ASSISTENTE TELE", folga2: "Sáb" }
             ],
-            "Loja 1 Tremembé": [
-                { name: "Marcos (Gerente 1)", role: "Gerente (Turno Único)", folga2: "Ter" },
-                { name: "Roberto (Gerente 2)", role: "Gerente (Turno Único)", folga2: "Qua" },
-                { name: "Patricia (Gerente 3)", role: "Gerente (Turno Único)", folga2: "Qui" },
-                { name: "Lucas (Gerente 4)", role: "Gerente (Turno Único)", folga2: "Ter" },
-                { name: "Marcelo Supervisor", role: "Supervisor (Cobertura)", folga2: "Qua" },
-                { name: "João Mecânico A", role: "Mecânico (Turno A - 08:00)", folga2: "Ter" },
-                { name: "Paulo Mecânico B", role: "Mecânico (Turno B - até 18:00)", folga2: "Qua" }
+            "Tremembé": [
+                { name: "FELIPE BEZERRA SANTOS", role: "GERENTE", folga2: "Ter" },
+                { name: "DIOGO GOMES DA SILVA", role: "MECÂNICO TÉCNICO", folga2: "Qua" },
+                { name: "GUILHERME NASCIMENTO ABREU", role: "VENDEDOR", folga2: "Qui" },
+                { name: "JACKSON DA SILVA NERIS", role: "MECÂNICO TÉCNICO", folga2: "Sex" },
+                { name: "SARAH PECHIAI RICCI DA SILVA", role: "ASSISTENTE ADM", folga2: "Seg" }
             ],
-            "Loja 2 Guarulhos": [
-                { name: "Ricardo G1", role: "Gerente (Turno Único)", folga2: "Ter" },
-                { name: "Bruno G2", role: "Gerente (Turno Único)", folga2: "Qua" },
-                { name: "Vanessa G3", role: "Gerente (Turno Único)", folga2: "Qui" },
-                { name: "Diego G4", role: "Gerente (Turno Único)", folga2: "Ter" },
-                { name: "Thiago Sup", role: "Supervisor (Cobertura)", folga2: "Qua" },
-                { name: "Alexandre Mec A", role: "Mecânico (Turno A - 08:00)", folga2: "Ter" },
-                { name: "Felipe Mec B", role: "Mecânico (Turno B - até 18:00)", folga2: "Qua" }
+            "Guarulhos": [
+                { name: "ALMIR ROGÉRIO JUNIOR GARCIA", role: "GERENTE", folga2: "Ter" },
+                { name: "DENNIS RIBEIRO MACEDO LIMA", role: "MECÂNICO", folga2: "Qua" },
+                { name: "JARDEL MOURA DO EGITO", role: "MECÂNICO", folga2: "Qui" },
+                { name: "JEFFERSON MANOEL VIANA DA SILVA", role: "AJUDANTE", folga2: "Sex" },
+                { name: "JESSICA APARECIDA BARBOSA FERREIRA", role: "ASSISTENTE ADM", folga2: "Seg" },
+                { name: "KAWAN LINO SILVA", role: "MECÂNICO", folga2: "Ter" },
+                { name: "MÁRCIA PEREIRA DA SILVA VIRGENS", role: "AUXILIAR DE LIMPEZA (4d Gru / 2d Central)", folga2: "Qua" },
+                { name: "VANDER CORDEIRO SANTOS", role: "VENDEDOR", folga2: "Qui" },
+                { name: "WELLINGTON SANTOS FERNANDES", role: "MECÂNICO", folga2: "Sex" }
             ],
-            "Loja 3 Tatuapé": [
-                { name: "Eduardo G1", role: "Gerente (Turno Único)", folga2: "Ter" },
-                { name: "Rodrigo G2", role: "Gerente (Turno Único)", folga2: "Qua" },
-                { name: "Tatiane G3", role: "Gerente (Turno Único)", folga2: "Qui" },
-                { name: "Renato G4", role: "Gerente (Turno Único)", folga2: "Ter" },
-                { name: "Wagner Sup", role: "Supervisor (Cobertura)", folga2: "Qua" },
-                { name: "Leandro Mec A", role: "Mecânico (Turno A - 08:00)", folga2: "Ter" },
-                { name: "Carlos Mec B", role: "Mecânico (Turno B - até 18:00)", folga2: "Qua" }
+            "Tatuapé": [
+                { name: "CRISTIANO CHAGAS CAMARGO DIAS", role: "GERENTE", folga2: "Ter" },
+                { name: "EDILAINE APARECIDA REZENDE CORREA", role: "AUXILIAR DE LIMPEZA (Altera TAT/ARI)", folga2: "Qua" },
+                { name: "EDUARDO VIEIRA SOBRAL", role: "MECÂNICO", folga2: "Qui" },
+                { name: "KAMYLI SILVA", role: "ASSISTENTE ADM", folga2: "Sex" },
+                { name: "MARCELO APARECIDO DEODATO", role: "MECÂNICO LÍDER", folga2: "Seg" },
+                { name: "RAFAEL ANDRADE FLEMING", role: "VENDEDOR", folga2: "Ter" }
             ],
-            "Loja 4 Aricanduva": [
-                { name: "Marcelo A. G1", role: "Gerente (Turno Único)", folga2: "Ter" },
-                { name: "Renato C. G2", role: "Gerente (Turno Único)", folga2: "Qua" },
-                { name: "Sandra G3", role: "Gerente (Turno Único)", folga2: "Qui" },
-                { name: "Luciana G4", role: "Gerente (Turno Único)", folga2: "Ter" },
-                { name: "Fabio Sup", role: "Supervisor (Cobertura)", folga2: "Qua" },
-                { name: "Mateus Mec A", role: "Mecânico (Turno A - 08:00)", folga2: "Ter" },
-                { name: "Jonas Mec B", role: "Mecânico (Turno B - até 18:00)", folga2: "Qua" }
+            "Aricanduva": [
+                { name: "HENRIQUE DIAS COUTINHO", role: "GERENTE", folga2: "Ter" },
+                { name: "GABRIEL CAMPANELLI TENORIO CAVALCANTE", role: "MECÂNICO", folga2: "Qua" },
+                { name: "MOISES VIEIRA DA SILVA", role: "MECÂNICO", folga2: "Qui" },
+                { name: "VITÓRIA MARRY AMORIM SILVA", role: "ASSISTENTE ADM", folga2: "Sex" }
             ]
         };
 
-        let db = JSON.parse(localStorage.getItem('furtil_escala_db_v5')) || defaultData;
-        let currentStore = "Loja 1 Tremembé";
+        let db = JSON.parse(localStorage.getItem('furtil_escala_db_v7')) || defaultData;
+        let currentStore = "Central";
         let currentTab = "dashboard";
 
         const storeSelector = document.getElementById('storeSelector');
@@ -437,15 +426,12 @@
             }).join('');
 
             // CALENDÁRIO DE DEZEMBRO 2026 (Dias 1 a 31)
-            // 01/12/2026 é Terça-feira (Exemplo de mapeamento do mês)
             const daysInMonth = 31;
             const weekDaysMap = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
             
-            // Gerar cabeçalho do calendário
             let calHeaderHTML = `<th class="p-2 border-b border-r bg-slate-200 text-slate-800 sticky left-0 z-10">Colaborador</th>`;
             let dayOfWeekList = [];
             for (let d = 1; d <= daysInMonth; d++) {
-                // 1 de Dezembro de 2026 é Terça (index 2)
                 let dateObj = new Date(2026, 11, d);
                 let wDay = weekDaysMap[dateObj.getDay()];
                 dayOfWeekList.push({ day: d, wDay: wDay });
@@ -456,7 +442,6 @@
             }
             document.getElementById('calHeaderRow').innerHTML = calHeaderHTML;
 
-            // Gerar linhas do calendário por colaborador
             let calBodyHTML = '';
             employees.forEach(emp => {
                 calBodyHTML += `<tr class="hover:bg-slate-50 transition">`;
@@ -493,14 +478,14 @@
                 </tr>
             `).join('');
 
-            localStorage.setItem('furtil_escala_db_v5', JSON.stringify(db));
+            localStorage.setItem('furtil_escala_db_v7', JSON.stringify(db));
         }
 
         function openAddModal() {
             document.getElementById('modalTitle').innerText = "Adicionar Colaborador";
             document.getElementById('empIndex').value = "";
             document.getElementById('empName').value = "";
-            document.getElementById('empRole').selectedIndex = 0;
+            document.getElementById('empRole').value = "";
             document.getElementById('empFolga2').value = "Ter";
             document.getElementById('employeeModal').classList.remove('hidden');
             document.getElementById('employeeModal').classList.add('flex');
@@ -528,6 +513,14 @@
             const name = document.getElementById('empName').value;
             const role = document.getElementById('empRole').value;
             const folga2 = document.getElementById('empFolga2').value;
+
+            // Validação para Sirlene no Telemarketing
+            if (currentStore === 'Telemarketing' && name.toUpperCase().includes('SIRLENE')) {
+                if (folga2 === 'Sáb' || folga2 === 'Seg') {
+                    alert("Atenção: A Sirlene não pode folgar aos sábados nem às segundas-feiras!");
+                    return;
+                }
+            }
 
             if (!db[currentStore]) db[currentStore] = [];
 
