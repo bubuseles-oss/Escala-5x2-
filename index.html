@@ -18,7 +18,7 @@
                 </div>
                 <div>
                     <h1 class="text-xl font-bold tracking-tight">Furtil Pneus & PneuX</h1>
-                    <p class="text-xs text-slate-400">Escala Mista (6x1 até 16/12 • 5x2 a partir de 16/12) • Dezembro/2026</p>
+                    <p class="text-xs text-slate-400">Escala Mista (5x2 até 20/12 • 6x1 a partir de 21/12) • Dezembro/2026</p>
                 </div>
             </div>
             <!-- Store Selector -->
@@ -255,38 +255,38 @@
     <script>
         const unitRules = {
             "Central": [
-                "Até 16/12: Escala 6x1 (trabalho de seg a sáb, folga domingo). A partir de 16/12: Escala 5x2 (com folga rotativa).",
+                "Até 20/12: Escala 5x2 (Domingo + 2ª Folga Rotativa). A partir de 21/12: Escala 6x1 (Trabalho de segunda a sábado, folga fixada aos domingos).",
                 "Bruna e Kimberlly folgam aos sábados e domingos.",
                 "Renato (Supervisor) não pode folgar no mesmo dia que os gerentes de loja (Henrique, Almir, Felipe, Cristiano).",
                 "Bruna (Gerente), José Carlos (Motorista), Renato (Supervisor)."
             ],
             "HR": [
-                "Até 16/12: Escala 6x1 (trabalho de seg a sáb, folga domingo). A partir de 16/12: Escala 5x2 (com folga rotativa).",
+                "Até 20/12: Escala 5x2 (Domingo + 2ª Folga Rotativa). A partir de 21/12: Escala 6x1 (Trabalho de segunda a sábado, folga fixada aos domingos).",
                 "Folgas aos sábados; quando houver o mesmo cargo na mesma unidade, um entra às 08h e o outro sai às 18h.",
                 "Equipe: Adilson, Caio, Jeis, Kauã, Paulo."
             ],
             "Telemarketing": [
-                "Até 16/12: Escala 6x1 (trabalho de seg a sáb, folga domingo). A partir de 16/12: Escala 5x2 (com folga rotativa).",
+                "Até 20/12: Escala 5x2 (Domingo + 2ª Folga Rotativa). A partir de 21/12: Escala 6x1 (Trabalho de segunda a sábado, folga fixada aos domingos).",
                 "2ª Folga Rotativa entre as assistentes (Cinthya e Domenica saem 18h; Emanuelly, Gabryelle e Nicole entram às 08h).",
                 "Sirlene (Supervisora): Não folga nem sábado e nem segunda."
             ],
             "Tremembé": [
-                "Até 16/12: Escala 6x1 (trabalho de seg a sáb, folga domingo). A partir de 16/12: Escala 5x2 (com folga rotativa).",
+                "Até 20/12: Escala 5x2 (Domingo + 2ª Folga Rotativa). A partir de 21/12: Escala 6x1 (Trabalho de segunda a sábado, folga fixada aos domingos).",
                 "Assistentes Administrativos não folgam aos sábados, segundas nem sextas, e não podem ter a mesma folga entre si na unidade.",
                 "Equipe: Felipe (Gerente), Diogo, Guilherme, Jackson, Sarah."
             ],
             "Guarulhos": [
-                "Até 16/12: Escala 6x1 (trabalho de seg a sáb, folga domingo). A partir de 16/12: Escala 5x2 (com folga rotativa).",
+                "Até 20/12: Escala 5x2 (Domingo + 2ª Folga Rotativa). A partir de 21/12: Escala 6x1 (Trabalho de segunda a sábado, folga fixada aos domingos).",
                 "Márcia: Fica 4 dias em Guarulhos e 2 no escritório (Central) / escala de divisão.",
                 "Equipe: Almir (Gerente), Dennis, Jardel, Jefferson, Jessica, Kawan, Márcia, Vander, Wellington."
             ],
             "Tatuapé": [
-                "Até 16/12: Escala 6x1 (trabalho de seg a sáb, folga domingo). A partir de 16/12: Escala 5x2 (com folga rotativa).",
+                "Até 20/12: Escala 5x2 (Domingo + 2ª Folga Rotativa). A partir de 21/12: Escala 6x1 (Trabalho de segunda a sábado, folga fixada aos domingos).",
                 "Edilaine: Um dia vai na Tatuapé, no outro na Aricanduva (alternada).",
                 "Equipe: Cristiano (Gerente), Edilaine, Eduardo, Kamyli, Marcelo, Rafael."
             ],
             "Aricanduva": [
-                "Até 16/12: Escala 6x1 (trabalho de seg a sáb, folga domingo). A partir de 16/12: Escala 5x2 (com folga rotativa).",
+                "Até 20/12: Escala 5x2 (Domingo + 2ª Folga Rotativa). A partir de 21/12: Escala 6x1 (Trabalho de segunda a sábado, folga fixada aos domingos).",
                 "Henrique é Gerente da unidade.",
                 "Equipe: Henrique (Gerente), Gabriel, Moises, Vitória."
             ]
@@ -348,7 +348,7 @@
             ]
         };
 
-        let db = JSON.parse(localStorage.getItem('furtil_escala_db_v13')) || defaultData;
+        let db = JSON.parse(localStorage.getItem('furtil_escala_db_v14')) || defaultData;
         let currentStore = "Central";
         let currentTab = "dashboard";
 
@@ -479,7 +479,7 @@
                 </tr>
             `).join('');
 
-            localStorage.setItem('furtil_escala_db_v13', JSON.stringify(db));
+            localStorage.setItem('furtil_escala_db_v14', JSON.stringify(db));
         }
 
         function openAddModal() {
