@@ -312,7 +312,7 @@
                 { name: "DOMENICA DE SOUZA SANTOS GUIMARÃES", role: "ASSISTENTE TELE (Sai 18h)", folga2: "Qui" },
                 { name: "EMANUELLY BERNARDO DE OLIVEIRA", role: "ASSISTENTE TELE (Entra 08h)", folga2: "Sex" },
                 { name: "NICOLE SILVA DE PAIVA", role: "ASSISTENTE TELE (Entra 08h)", folga2: "Seg" },
-                { name: "SARAH GABRYELLE MEDEIROS DA SILVA", role: "ASSISTENTE TELE (Entra 08h)", folga2: "Sáb" }
+                { name: "SARAH GABRYELLE MEDEIROS DA SILVA", role: "ASSISTENTE TELE (Entra 08h)", folga2: "Ter" }
             ],
             "Tremembé": [
                 { name: "FELIPE BEZERRA SANTOS", role: "GERENTE", folga2: "Ter" },
@@ -348,7 +348,7 @@
             ]
         };
 
-        let db = JSON.parse(localStorage.getItem('furtil_escala_db_v12')) || defaultData;
+        let db = JSON.parse(localStorage.getItem('furtil_escala_db_v13')) || defaultData;
         let currentStore = "Central";
         let currentTab = "dashboard";
 
@@ -479,7 +479,7 @@
                 </tr>
             `).join('');
 
-            localStorage.setItem('furtil_escala_db_v12', JSON.stringify(db));
+            localStorage.setItem('furtil_escala_db_v13', JSON.stringify(db));
         }
 
         function openAddModal() {
@@ -572,6 +572,15 @@
                             }
                         }
                     }
+                }
+            }
+
+
+            // Validação para Telemarketing: não podem folgar aos sábados
+            if (currentStore === 'Telemarketing') {
+                if (folga2 === 'Sáb') {
+                    alert("Atenção: A equipe de Telemarketing não folga aos sábados!");
+                    return;
                 }
             }
 
